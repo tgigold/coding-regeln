@@ -1,0 +1,39 @@
+# Vorlage für /public/.htaccess – Regeln S-1 bis S-5.
+# example.org durch die Domain des Projekts ersetzen.
+# Die Header stehen bewusst nicht in <IfModule>: Fehlt mod_headers, soll das
+# sofort als Fehler auffallen statt stillschweigend ohne Schutz zu laufen.
+
+Options -Indexes -MultiViews
+
+RewriteEngine On
+
+# S-1: HTTPS und feste Domain erzwingen, nie auf den Host-Header umleiten
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !=example.org
+RewriteRule ^ https://example.org%{REQUEST_URI} [R=301,L]
+
+# Versteckte Dateien sperren (.git, .env …), .well-known bleibt erreichbar
+RewriteRule (^|/)\.(?!well-known/) - [F]
+
+# Alles, was keine Datei ist, an den Front-Controller
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+# S-2: HSTS. includeSubDomains nur ergänzen, wenn alle Subdomains HTTPS sprechen.
+Header always set Strict-Transport-Security "max-age=31536000"
+
+# S-3, S-4: strikte CSP, keine Inline-Skripte und -Styles.
+# data: bei img-src braucht Bootstrap für eingebettete SVG-Symbole.
+Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+
+# S-5
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Cross-Origin-Opener-Policy "same-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"
+
+# Statische Dateien tragen die Version in der URL (A-6) und dürfen lange cachen
+<FilesMatch "\.(css|js|woff2|svg|png|jpg|jpeg|webp|avif|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>

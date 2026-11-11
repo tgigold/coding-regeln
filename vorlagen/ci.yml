@@ -1,0 +1,45 @@
+# Vorlage für .github/workflows/ci.yml – Regeln H-8 bis H-10.
+# Startpunkt: PHP-Version, Extensions und Pfade ans Projekt anpassen.
+# Abhängigkeitsfreie Projekte ohne composer.json streichen die Composer-Schritte.
+name: CI
+
+on:
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl, pdo_sqlite, sodium
+          coverage: none
+
+      - name: Syntax prüfen
+        run: |
+          find . -name '*.php' -not -path './vendor/*' -print0 \
+            | xargs -0 -n1 -P4 php -l > /dev/null
+
+      - name: Composer prüfen und installieren
+        run: |
+          composer validate --strict
+          composer install --no-interaction --no-progress
+
+      - name: Bekannte Sicherheitslücken
+        run: composer audit
+
+      - name: Statische Analyse
+        run: vendor/bin/phpstan analyse --no-progress
+
+      - name: Tests
+        run: vendor/bin/phpunit

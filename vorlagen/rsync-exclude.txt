@@ -1,0 +1,21 @@
+# Vorlage für deploy/rsync-exclude.txt – Regel H-13.
+# Pfade mit führendem / gelten ab Projektwurzel.
+# Was hier steht, wird weder hochgeladen noch auf dem Server gelöscht.
+
+# Gehört nicht auf den Server
+/.git/
+/.github/
+/.gitignore
+/.editorconfig
+/deploy/
+/tests/
+/node_modules/
+/phpunit.xml
+/phpstan.neon
+.DS_Store
+
+# Lebt nur auf dem Server und bleibt unangetastet – ans Projekt anpassen
+/config/config.php
+/data/
+/storage/
+/backups/
