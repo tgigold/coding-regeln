@@ -39,7 +39,7 @@ jobs:
         run: composer audit
 
       - name: Statische Analyse
-        run: vendor/bin/phpstan analyse --no-progress
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
 
       - name: Tests
         run: vendor/bin/phpunit

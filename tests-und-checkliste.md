@@ -2,12 +2,13 @@
 
 ## Tests
 
-- **Q-1** Jedes Feature bringt Tests mit: Unit- und Kernel-Tests mit PHPUnit, dazu statische Analyse mit PHPStan auf hohem Level.
+- **Q-1** Jedes Feature bringt Tests mit: Unit- und Kernel-Tests mit PHPUnit, dazu statische Analyse mit PHPStan auf Level 8. Ein niedrigeres Level ist eine Abweichung und steht mit Begründung im Steckbrief.
 - **Q-2** Sicherheitsregeln werden getestet, nicht nur umgesetzt: Es gibt Tests dafür, dass eine Route ohne Login abweist, ein POST ohne CSRF-Token scheitert, ein Nutzer fremde Datensätze nicht sieht und ungültige Eingaben mit `422` enden.
 - **Q-3** Frontend-JavaScript wird mit Browser-Tests abgedeckt.
 - **Q-4** Tests fragen nie echte externe Dienste an und fassen nie die echte Config oder Datenbank an. Sie laufen gegen eine frische Testdatenbank und gegen aufgezeichnete oder nachgebaute Antworten.
 - **Q-5** Ein behobener Fehler bekommt einen Test, der ohne die Korrektur scheitert.
 - **Q-6** Abhängigkeitsfreie Projekte dürfen PHPUnit und PHPStan trotzdem als Entwicklungspakete nutzen; sie landen nie auf dem Server (`T-3`).
+- **Q-7** Wird PHPStan in bestehenden Code eingeführt, dürfen die vorhandenen Funde in eine Baseline (`phpstan-baseline.neon`). Die Baseline wird nur kleiner, nie größer: Neue Funde werden behoben, nicht eingetragen.
 
 ## Checkliste vor dem Merge
 
