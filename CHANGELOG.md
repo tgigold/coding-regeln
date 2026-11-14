@@ -4,6 +4,16 @@ Alle nennenswerten Änderungen an den Coding-Regeln stehen hier. Das Format folg
 
 ## [Unreleased]
 
+### Hinzugefügt
+
+- `Q-7`: Baseline für PHPStan beim Einführen in bestehenden Code, die nur kleiner werden darf
+- Vorlage `rsync-exclude.txt`: Baseline sowie Caches von PHPStan und PHPUnit werden nicht hochgeladen
+
+### Geändert
+
+- `Q-1`: „hohes Level“ für PHPStan als Level 8 festgelegt; ein niedrigeres Level ist eine Abweichung im Steckbrief
+- Vorlage `ci.yml`: PHPStan läuft mit `--memory-limit=1G`, weil das Standardlimit bei größeren Projekten nicht reicht
+
 ## [1.0.0] – 2026-11-11
 
 ### Hinzugefügt

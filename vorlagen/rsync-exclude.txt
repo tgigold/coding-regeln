@@ -12,6 +12,9 @@
 /node_modules/
 /phpunit.xml
 /phpstan.neon
+/phpstan-baseline.neon
+/.phpstan.cache/
+/.phpunit.cache/
 .DS_Store
 
 # Lebt nur auf dem Server und bleibt unangetastet – ans Projekt anpassen
