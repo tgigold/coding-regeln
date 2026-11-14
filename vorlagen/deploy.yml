@@ -42,6 +42,10 @@ jobs:
       - name: Abhängigkeiten für Produktion
         run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
 
+      # G-1: vendor/ liegt neben public/ und wird zusätzlich gesperrt
+      - name: vendor/ sperren
+        run: printf 'Require all denied\n' > vendor/.htaccess
+
       # H-12: eigener Schlüssel, Host-Key fest hinterlegt
       - name: SSH einrichten
         env:

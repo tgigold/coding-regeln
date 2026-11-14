@@ -4,6 +4,12 @@ Alle nennenswerten Änderungen an den Coding-Regeln stehen hier. Das Format folg
 
 ## [Unreleased]
 
+### Geändert
+
+- `G-1`: Die sperrende `.htaccess` steht in jedem Verzeichnis neben `/public`, ausdrücklich nicht im Projektverzeichnis. Apache liest die `.htaccess` der Elternverzeichnisse des Document Root mit; die bisherige Vorlage sperrte deshalb die ganze Seite, sobald das Document Root auf `/public` zeigt (aufgefallen beim ersten Deploy von mash-disclaimer). `vendor/` wird beim Deployment gesperrt.
+- Vorlage `htaccess-deny`: Hinweis entsprechend korrigiert.
+- Vorlage `deploy.yml`: sperrt `vendor/` nach dem Composer-Build per `.htaccess`.
+
 ## [1.2.0] – 2026-11-14
 
 ### Hinzugefügt

@@ -1,3 +1,5 @@
-# Gehört in jedes Verzeichnis außerhalb von /public (und ins Projektverzeichnis
-# selbst), falls das Document Root doch einmal aufs Projekt zeigt. Regel G-1.
+# Gehört in jedes Verzeichnis neben /public (src/, config/, templates/ …),
+# falls das Document Root doch einmal aufs Projekt zeigt. Regel G-1.
+# Nie ins Projektverzeichnis selbst: Apache liest auch die .htaccess der
+# Elternverzeichnisse des Document Root – sie würde /public mitsperren.
 Require all denied

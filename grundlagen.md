@@ -2,7 +2,7 @@
 
 ## Projektaufbau
 
-- **G-1** `/public` ist das Web-Root. Alle anderen Dateien (Code, Config, Daten, Templates, `vendor/`) liegen außerhalb und sind zusätzlich per `.htaccess` gegen direkten Zugriff gesperrt ([Vorlage](vorlagen/htaccess-deny)) – für den Fall, dass das Document Root doch aufs Projektverzeichnis zeigt.
+- **G-1** `/public` ist das Web-Root. Alle anderen Dateien (Code, Config, Daten, Templates, `vendor/`) liegen außerhalb und sind zusätzlich per `.htaccess` gegen direkten Zugriff gesperrt ([Vorlage](vorlagen/htaccess-deny)) – für den Fall, dass das Document Root doch aufs Projektverzeichnis zeigt. Die Sperre steht in jedem Verzeichnis neben `/public`, nie im Projektverzeichnis selbst oder einem anderen Elternverzeichnis von `/public`: Apache wertet die `.htaccess` aller Elternverzeichnisse des Document Root mit aus, die Sperre würde also die ganze Seite sperren. `vendor/` bekommt seine Sperre beim Deployment, weil es nicht im Repo liegt.
 - **G-2** Jedes Projekt hat eine ausführliche `README.md`, sauber und menschenlesbar. Sie beginnt mit dem Projekt-Steckbrief und beschreibt Installation, Konfiguration, Betrieb (Backup, Updates), Deployment und lokale Entwicklung. Sie wird mit jedem Feature mitgepflegt.
 - **G-3** Jedes Projekt hat eine `CHANGELOG.md` nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/). Jede Änderung landet im selben Pull Request unter „Unreleased“, nicht erst beim Release.
 - **G-4** Weitere Pflichtdateien: `LICENSE` (bei öffentlichen Projekten), `SECURITY.md` ([Vorlage](vorlagen/SECURITY.md)), `.gitignore`, `.editorconfig` und – sobald fremder Code oder fremde Schriften mit ausgeliefert werden – `THIRD-PARTY-LICENSES.md`.
