@@ -31,6 +31,7 @@ Die Kurzform ersetzt die Themen-Dateien nicht. Sie ist das, was immer präsent s
 1. Vor Projektbeginn wird der Steckbrief geklärt: Abhängigkeiten, Frontend, Datenbank, Zugang, Daten, Repo, Deployment, Ausnahmen (`P-1`).
 2. `/public` ist das Web-Root, alles andere liegt außerhalb und ist zusätzlich gesperrt (`G-1`).
 3. Jedes Projekt hat `README.md`, `CHANGELOG.md`, `LICENSE` und `SECURITY.md`; README und CHANGELOG werden mit jeder Änderung gepflegt (`G-2`–`G-4`).
+   Öffentliche Repos enthalten keine Anweisungsdateien für KI-Assistenten wie `CLAUDE.md`; der Verweis auf diese Regeln steht in der README (`G-18`).
 4. PHP ist objektorientiert, `strict_types`, nach PSR-1, PSR-4 und PER Coding Style (`G-7`, `G-8`).
 5. SQL nur in Repositories, Logik in Services, Controller nur für Request und Response (`A-1`).
 

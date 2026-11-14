@@ -8,6 +8,7 @@
 - **G-4** Weitere Pflichtdateien: `LICENSE` (bei öffentlichen Projekten), `SECURITY.md` ([Vorlage](vorlagen/SECURITY.md)), `.gitignore`, `.editorconfig` und – sobald fremder Code oder fremde Schriften mit ausgeliefert werden – `THIRD-PARTY-LICENSES.md`.
 - **G-5** Versionierung nach [Semantic Versioning](https://semver.org/lang/de/). Die Version steht an genau einer Stelle im Code.
 - **G-6** Öffentliche Projekte stehen unter der [Unlicense](https://unlicense.org/), sofern der Steckbrief nichts anderes sagt. Lizenzen mitgelieferter Bibliotheken und Schriften (MIT, OFL …) bleiben davon unberührt und werden in `THIRD-PARTY-LICENSES.md` genannt.
+- **G-18** Öffentliche Repos enthalten keine Anweisungsdateien für KI-Assistenten (`CLAUDE.md`, `AGENTS.md`, `.claude/` und Ähnliches). Was Menschen wie Assistenten über das Projekt wissen müssen, steht in der README, auch der Verweis auf diese Regeln. Lokale Anweisungen für Assistenten werden nicht eingecheckt.
 
 ## Code-Stil
 
