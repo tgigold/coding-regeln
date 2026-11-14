@@ -4,6 +4,10 @@ Alle nennenswerten Änderungen an den Coding-Regeln stehen hier. Das Format folg
 
 ## [Unreleased]
 
+### Hinzugefügt
+
+- `G-18`: Öffentliche Repos enthalten keine Anweisungsdateien für KI-Assistenten (`CLAUDE.md`, `AGENTS.md`, `.claude/` …); der Verweis auf die Regeln steht in der README. Dazu ein Punkt in der Checkliste vor dem Merge.
+
 ## [1.1.0] – 2026-11-14
 
 ### Hinzugefügt

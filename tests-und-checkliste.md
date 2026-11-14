@@ -17,6 +17,7 @@ Claude geht diese Liste vor jedem Pull Request durch und nennt in der Beschreibu
 - [ ] Die Änderung passt zum Steckbrief; wenn nicht, ist der Steckbrief angepasst (`P-3`)
 - [ ] Tests, statische Analyse und `composer audit` sind grün (`H-8`)
 - [ ] CHANGELOG hat einen Eintrag unter „Unreleased“, die README stimmt noch (`G-2`, `G-3`)
+- [ ] Bei öffentlichen Repos: keine Anweisungsdateien für KI-Assistenten im Diff (`G-18`)
 - [ ] Neue Routen sind in der Routenliste, hinter dem Login oder ausdrücklich als Ausnahme markiert (`A-3`)
 - [ ] Jede neue Eingabe ist auf Typ, Länge und erlaubte Werte geprüft (`E-1` bis `E-6`)
 - [ ] Jede neue Ausgabe ist für ihren Kontext escaped, neues SQL steht im Repository und nutzt Prepared Statements (`S-16`, `S-19`, `S-20`)
