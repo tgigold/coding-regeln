@@ -4,6 +4,8 @@ Alle nennenswerten Änderungen an den Coding-Regeln stehen hier. Das Format folg
 
 ## [Unreleased]
 
+## [1.1.0] – 2026-11-14
+
 ### Hinzugefügt
 
 - `Q-7`: Baseline für PHPStan beim Einführen in bestehenden Code, die nur kleiner werden darf
